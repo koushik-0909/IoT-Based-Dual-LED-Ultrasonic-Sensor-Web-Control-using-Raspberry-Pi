@@ -1,45 +1,44 @@
 # IoT-Based-Dual-LED-Ultrasonic-Sensor-Web-Control-using-Raspberry-Pi
 This project uses a Raspberry Pi to control two LEDs and monitor distance using an ultrasonic sensor, all via a Flask-based web interface. Users can turn LEDs on/off and view real-time distance measurements from anywhere using a Cloudflared tunnel, enabling remote access without port forwarding.
-![Project Banner](https://via.placeholder.com/800x400?text=IoT+LED+and+Distance+Monitoring) <!-- Replace with actual image -->
 
-A web-controlled IoT system for managing LEDs and monitoring distance using ultrasonic sensors, accessible locally or remotely via Cloudflare Tunnel.
+---
 
 ## Features
 
-- ✅ Real-time LED control (ON/OFF)
-- 📏 Live ultrasonic distance monitoring
-- 🌐 Web interface accessible from any device
-- 🔒 Secure remote access via Cloudflare Tunnel
-- 📱 Mobile-responsive design
-- 📊 Automatic sensor data refresh
+- Turn LED1 and LED2 ON or OFF via web buttons.
+- Real-time distance measurement using ultrasonic sensor.
+- Displays server IP and LED statuses on the web page.
+- Responsive and user-friendly web interface.
+- Optional remote access using Cloudflared tunnel.
 
-## Hardware Requirements
+---
 
-| Component | Quantity |
-|-----------|----------|
-| Raspberry Pi/ESP32 | 1 |
-| HC-SR04 Ultrasonic Sensor | 1 |
-| LEDs | 2 |
-| 220Ω Resistors | 2 |
-| Breadboard | 1 |
-| Jumper Wires | As needed |
+## Hardware Components
 
-## Wiring Diagram
+- Raspberry Pi (any model with GPIO pins)
+- 2 LEDs connected to GPIO pins 21 and 20 (with current-limiting resistors)
+- Ultrasonic sensor HC-SR04 connected to GPIO pins 19 (TRIG) and 13 (ECHO)
+- Jumper wires and breadboard
 
-```plaintext
-LED1 (GPIO21) ----[220Ω]---- GND
-LED2 (GPIO20) ----[220Ω]---- GND
-TRIG (GPIO19) ---- HC-SR04 Trig
-ECHO (GPIO13) ---- HC-SR04 Echo
-VCC (5V) -------- HC-SR04 VCC
-GND ------------ HC-SR04 GND
+---
 
-# Clone repository
-git clone https://github.com/yourusername/iot-led-distance-monitor.git
-cd iot-led-distance-monitor
+## Software Requirements
 
-# Install dependencies
+- Python 3.x
+- Flask (`pip install flask`)
+- RPi.GPIO (`pip install RPi.GPIO`)
+- Cloudflared (optional, for remote tunneling)
+
+---
+
+## Setup and Usage
+
+### 1. Hardware Setup
+
+- Connect the LEDs to GPIO pins 21 and 20 (include resistors).
+- Connect the ultrasonic sensor's TRIG pin to GPIO 19 and ECHO pin to GPIO 13.
+
+### 2. Install Dependencies
+
+```bash
 pip install flask RPi.GPIO
-
-# Run the application
-python app.py
